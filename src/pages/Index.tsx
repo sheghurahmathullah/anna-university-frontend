@@ -59,7 +59,7 @@ const Index = () => {
   useEffect(() => {
     const checkAuthStatus = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/auth/status");
+        const response = await axios.get("https://anna-university-backend.vercel.app/auth/status");
         setIsAuthenticated(response.data.isAuthenticated);
         setAuthUrl(response.data.authUrl);
 
@@ -95,7 +95,7 @@ const Index = () => {
   // Logout function
   const handleLogout = async () => {
     try {
-      await axios.get("http://localhost:5000/logout");
+      await axios.get("https://anna-university-backend.vercel.app/logout");
       setIsAuthenticated(false);
       setAuthUrl(null);
       toast({
@@ -222,7 +222,7 @@ const Index = () => {
       let uploadResponse;
       try {
         uploadResponse = await axios.post(
-          "http://localhost:5000/upload",
+          "https://anna-university-backend.vercel.app/upload",
           uploadFormData,
           {
             headers: { "Content-Type": "multipart/form-data" },
